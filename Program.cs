@@ -14,7 +14,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDBcontext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
-builder.Services.AddScoped<IStudent, StudentRepo>();
+
+//dependency injection
+//builder.Services.AddScoped<IStudent, StudentRepo>();
+builder.Services.AddScoped<IstudusentNew, StudentRepoNew>();
+
 
 var app = builder.Build();
 

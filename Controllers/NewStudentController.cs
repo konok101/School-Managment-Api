@@ -7,20 +7,22 @@ namespace School_Managment.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class NewStudentController : ControllerBase
     {
-        private readonly IStudent _student;
 
-        public StudentController(IStudent studentRepo)
+        private readonly IstudusentNew _student;
+
+        public NewStudentController(IstudusentNew studentRepo)
         {
             _student = studentRepo;
         }
 
+
         [HttpGet]
-        [Route("GETSTUDENTlIST")]
-        public async Task<ActionResult<List<Student>>> GetAllStudent()
+        [Route("mss")]
+        public async Task<ActionResult<List<Student>>> GetStudentDetails()
         {
-             var studentList = await _student.GetAllStudent();
+            var studentList = await _student.GetStudentDetails();
             return Ok(studentList);
         }
 

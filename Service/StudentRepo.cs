@@ -2,6 +2,7 @@
 using School_Managment.DBcontext;
 using School_Managment.Inderface;
 using School_Managment.Model;
+using School_Managment.PresentationModel;
 
 namespace School_Managment.Service
 {
@@ -13,18 +14,25 @@ namespace School_Managment.Service
             _dbcontext = dbcontext;
         }
 
-        public async Task<List<Student>> GetAllStudent()
+        public async Task<List<demo>> GetAllStudent()
         {
-            return await _dbcontext.studentInfo.Select(s=> new Student
-            {
-               student_name = s.student_name,
-                age=s.age,
-               student_id = s.student_id,
-               cgpa=s.cgpa,
-                performance=s.performance,
-              //  id=s.id,
+            List<demo>std=new List<demo>();
+            std=await Task.FromResult((from E in _dbcontext.Employees
+                                       join S in _dbcontext.StudentLists on E.Id equals S.student_id
+                                       select new demo
+                                       {
+                                           name=E.EMPName,
+                                           roll=S.roll
+                                       }
 
-            }).ToListAsync();
+
+                ).ToList());
+           
+
+            return std;
+
+           // return studentsList;
+
         }
     }
 }

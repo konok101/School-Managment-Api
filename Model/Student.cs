@@ -1,14 +1,17 @@
-﻿namespace School_Managment.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace School_Managment.Model
 {
     public class Student
     {
- public  string student_name {  get; set; }
-      public int age { get; set; }
-        public int id { get; set; }
-      public int student_id { get; set; }
- 
-        public int cgpa {  get; set; }
-       public string performance { get; set; }
+        public int? Id { get; set; }
+
+        public string? name1 {  get; set; }
+        [Key]
+         public int? student_id { get; set; }
+       // public float? cgpa{  get; set; }
+        public int? roll {  get; set; }
+       public string? performance { get; set; }
 
     }
 }
