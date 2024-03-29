@@ -9,5 +9,7 @@ namespace School_Managment.DBcontext
         public DbSet<Student> StudentLists { get; set; }
         public DbSet<Employee> Employees { get; set; }  
 
+        public DbSet<GoodStudent> GoodStudentList { get; set; } 
+
     }
 }

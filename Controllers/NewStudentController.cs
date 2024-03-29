@@ -19,14 +19,28 @@ namespace School_Managment.Controllers
 
 
         [HttpGet]
-        [Route("mss")]
+        [Route("getStudentBasicInfo")]
         public async Task<ActionResult<List<Student>>> GetStudentDetails()
         {
             var studentList = await _student.GetStudentDetails();
             return Ok(studentList);
         }
 
+        [HttpGet]
+        [Route("getStudentCgpa")]
+        public async Task<ActionResult<List<Student>>> getGoodStudentNameWithCgpAndPerformance()
+        {
+            var stu =await _student.getGoodStudentNameWithCgpAndPerformance();
+            return Ok(stu);
+        }
 
+        [HttpGet]
+        [Route("getStudentCgpabyId")]
+        public async Task<ActionResult<List<Student>>> getCgpaAndNameById(int id)
+        {
+            var stu = await _student.getCgpaAndNameById(id);
+            return Ok(stu);
+        }
 
 
 
