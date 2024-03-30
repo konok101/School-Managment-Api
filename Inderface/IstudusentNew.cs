@@ -10,5 +10,7 @@ namespace School_Managment.Inderface
         Task<List<newStudentPresentation>>getGoodStudentNameWithCgpAndPerformance();
         Task<List<newStudentPresentation>>getCgpaAndNameById(int id);
 
+        Task<List<newStudentPresentation>> groupByPerformance();
+
     }
 }

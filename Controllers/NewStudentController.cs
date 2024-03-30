@@ -42,7 +42,13 @@ namespace School_Managment.Controllers
             return Ok(stu);
         }
 
-
+        [HttpGet]
+        [Route("groupByperFormance")]
+        public async Task<ActionResult<List<Student>>> groupByPerformance()
+        {
+            var stu = await _student.groupByPerformance();
+            return Ok(stu);
+        }
 
     }
 }
